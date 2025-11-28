@@ -92,6 +92,12 @@ loss = F.mse_loss(y_pred, y)              # scalar loss
 #
 #    Computational graph after forward pass
 #
+# .. note::
+#    In the diagram above, ``z`` should have ``requires_grad=True`` because
+#    both ``W`` and ``b`` have ``requires_grad=True``. When at least one input
+#    to an operation has ``requires_grad=True``, the output will also have
+#    ``requires_grad=True``.
+#
 # PyTorch considers a node to be a *leaf* if it is not the result of a
 # tensor operation with at least one input having ``requires_grad=True``
 # (e.g. ``x``, ``W``, ``b``, and ``y``), and everything else to be
